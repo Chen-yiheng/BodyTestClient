@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\AndroidStudioProjects\PowerImageViewTest1\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c5c76a308cdd3747c28da15f4e60c86983fcee87">
+        <dex dex="E:\AndroidStudioProjects\PowerImageViewTest1\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_bd764bf52091b1cfbbd8eede85806716c65204d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\AndroidStudioProjects\PowerImageViewTest1\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6a3de43d13dec0ac967aff43ea6fffa33aba5ef1">
+        <dex dex="E:\AndroidStudioProjects\PowerImageViewTest1\app\build\intermediates\pre-dexed\debug\instant-run_b63fde674c055b3be017997d4065a502c163fe41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\SDK\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="E:\AndroidStudioProjects\PowerImageViewTest1\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_fb4be0c260c5ccffae22f0cf7f82ef6947998209.jar" />
+    </item>
+
+</items>

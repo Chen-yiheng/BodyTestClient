@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\BaiduDevelop\\baiduMapTest\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\left.png",
+        "source": "E:\\AndroidStudioProjects\\BaiduDevelop\\baiduMapTest\\src\\main\\res\\drawable-hdpi\\left.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\BaiduDevelop\\baiduMapTest\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\middle.png",
+        "source": "E:\\AndroidStudioProjects\\BaiduDevelop\\baiduMapTest\\src\\main\\res\\drawable-hdpi\\middle.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\BaiduDevelop\\baiduMapTest\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\right.png",
+        "source": "E:\\AndroidStudioProjects\\BaiduDevelop\\baiduMapTest\\src\\main\\res\\drawable-hdpi\\right.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\BaiduDevelop\\baiduMapTest\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "E:\\AndroidStudioProjects\\BaiduDevelop\\baiduMapTest\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    }
+]

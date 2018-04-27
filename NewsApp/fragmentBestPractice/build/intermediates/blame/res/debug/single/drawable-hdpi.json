@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\spilt_line_vertical.png",
+        "source": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\src\\main\\res\\drawable-hdpi\\spilt_line_vertical.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\spilt_line.png",
+        "source": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\src\\main\\res\\drawable-hdpi\\spilt_line.png"
+    }
+]

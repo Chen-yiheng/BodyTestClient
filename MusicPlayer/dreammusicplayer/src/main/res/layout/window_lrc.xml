@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginRight="30dp"
+                android:background="#b9746d74"
+                android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/voiceImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/voice"/>
+
+    <SeekBar
+        android:id="@+id/voice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_toRightOf="@id/voiceImage"/>
+
+    <TextView
+        android:id="@+id/bondText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/voiceImage"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:text="字号"
+        android:textSize="17sp"/>
+
+    <SeekBar
+        android:id="@+id/bondSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/bondText"
+        android:layout_marginRight="30dp"
+        android:layout_toEndOf="@+id/voiceImage"
+        android:layout_toRightOf="@+id/voiceImage"/>
+</RelativeLayout>

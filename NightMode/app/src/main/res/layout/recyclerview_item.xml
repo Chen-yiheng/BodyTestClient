@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:padding="3dp">
+
+    <ImageView
+        android:id="@+id/image_item"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/apple"/>
+
+    <TextView
+        android:id="@+id/fruit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@id/image_item"
+        android:text="苹果"
+        android:textColor="?attr/textColor"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/fruit_introduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fruit_name"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/image_item"
+        android:text="苹果是一种好吃的水果"
+        android:textColor="?attr/textColor"
+        android:textSize="18sp"/>
+
+</RelativeLayout>

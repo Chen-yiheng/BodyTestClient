@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.sharedpreferences.MainActivity">
+
+    <TableLayout
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:stretchColumns="1">
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="名字："
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="年龄："
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/age"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20sp"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="婚姻："
+                android:textSize="20sp"/>
+
+            <RadioGroup
+                android:id="@+id/radio"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/married"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="是"/>
+
+                <RadioButton
+                    android:id="@+id/notMarried"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="否"/>
+            </RadioGroup>
+        </TableRow>
+
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="save_data"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="read_data"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv"
+        android:layout_below="@id/button2"
+        android:layout_marginTop="30dp"
+        android:textColor="#f00"
+        android:textSize="20sp"/>
+
+
+
+</RelativeLayout>

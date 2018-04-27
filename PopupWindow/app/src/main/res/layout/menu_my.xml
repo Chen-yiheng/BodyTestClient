@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#842cac9a"
+            android:padding="3dp"
+            android:columnCount="4">
+
+    <Button
+        android:id="@+id/rc11"
+        android:background="#00f6fff7"
+        android:text="添加书签"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/rc12"
+        android:background="#00f6fff7"
+        android:text="书签历史"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/rc13"
+        android:background="#00f6fff7"
+        android:text="文件下载"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/rc14"
+        android:background="#00f6fff7"
+        android:text="刷新"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/rc21"
+        android:background="#00f6fff7"
+        android:text="设置"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/rc22"
+        android:background="#00f6fff7"
+        android:text="分享"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/rc23"
+        android:background="#00f6fff7"
+        android:text="工具箱"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/rc24"
+        android:background="#00f6fff7"
+        android:text="退出"
+        android:textSize="20sp"/>
+
+</GridLayout>

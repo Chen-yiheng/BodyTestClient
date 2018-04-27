@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vip.service.MainActivity">
+
+    <Button
+        android:id="@+id/bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBind"
+        android:padding="8dp"
+        android:text="绑定"
+        android:textSize="25dp"/>
+
+    <Button
+        android:id="@+id/unBind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bind"
+        android:onClick="onUnbind"
+        android:padding="8dp"
+        android:text="解绑"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/calculationInfo"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/unBind"
+        android:text="计算内容"
+        android:textColor="#ff0000"
+        android:textSize="25sp"/>
+    <!--<Button-->
+        <!--android:id="@+id/calculation"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/calculationInfo"-->
+        <!--android:onClick="onCalculation"-->
+        <!--android:padding="8dp"-->
+        <!--android:text="计算"-->
+        <!--android:textSize="25dp"/>-->
+
+</RelativeLayout>

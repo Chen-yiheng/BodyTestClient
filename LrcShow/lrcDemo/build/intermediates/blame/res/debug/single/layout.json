@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\layout\\toast.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\layout\\toast.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\layout\\seekbar.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\layout\\seekbar.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\layout\\activity_main.xml"
+    }
+]

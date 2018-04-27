@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Webview</string>
+    <string name="about">这是一个简易版的浏览器，
+        虽然很多功能还不完善，但它能免除浏览器访问网页弹出广告的烦恼</string>
+</resources>

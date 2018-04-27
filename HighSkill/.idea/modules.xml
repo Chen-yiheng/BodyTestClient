@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GainContext/GainContext.iml" filepath="$PROJECT_DIR$/GainContext/GainContext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HighSkill.iml" filepath="$PROJECT_DIR$/HighSkill.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LogControl/LogControl.iml" filepath="$PROJECT_DIR$/LogControl/LogControl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SerializableAndParcelable/SerializableAndParcelable.iml" filepath="$PROJECT_DIR$/SerializableAndParcelable/SerializableAndParcelable.iml" />
+    </modules>
+  </component>
+</project>

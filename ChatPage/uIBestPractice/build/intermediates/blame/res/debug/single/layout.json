@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\ChatPage\\uIBestPractice\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\AndroidStudioProjects\\ChatPage\\uIBestPractice\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\ChatPage\\uIBestPractice\\build\\intermediates\\res\\merged\\debug\\layout\\msg_item.xml",
+        "source": "E:\\AndroidStudioProjects\\ChatPage\\uIBestPractice\\src\\main\\res\\layout\\msg_item.xml"
+    }
+]

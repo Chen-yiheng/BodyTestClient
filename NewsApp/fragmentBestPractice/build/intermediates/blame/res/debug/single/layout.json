@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\build\\intermediates\\res\\merged\\debug\\layout\\news_item.xml",
+        "source": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\src\\main\\res\\layout\\news_item.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\build\\intermediates\\res\\merged\\debug\\layout\\news_title_frag.xml",
+        "source": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\src\\main\\res\\layout\\news_title_frag.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\build\\intermediates\\res\\merged\\debug\\layout\\news_content.xml",
+        "source": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\src\\main\\res\\layout\\news_content.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\build\\intermediates\\res\\merged\\debug\\layout\\news_content_frag.xml",
+        "source": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\src\\main\\res\\layout\\news_content_frag.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\AndroidStudioProjects\\NewsApp\\fragmentBestPractice\\src\\main\\res\\layout\\activity_main.xml"
+    }
+]

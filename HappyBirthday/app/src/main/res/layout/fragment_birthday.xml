@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#020202"
+    android:orientation="vertical">
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifview2"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/birth1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_gravity=""
+        android:layout_marginTop="10dp"
+        android:text="    苏   峰   琅"
+        android:textColor="#f00"
+        android:textSize="30sp"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifview3"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/gifview2"
+        android:src="@drawable/birth2"/>
+
+
+</LinearLayout>

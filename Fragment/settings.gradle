@@ -1,0 +1,1 @@
+include ':app', ':dynamicfragment', ':backstack', ':fragmentconnactivity', ':fragmentaddmenu', ':arguments', ':resultfragment'

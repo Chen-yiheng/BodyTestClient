@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LrcShow.iml" filepath="$PROJECT_DIR$/LrcShow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customViewGroup/customViewGroup.iml" filepath="$PROJECT_DIR$/customViewGroup/customViewGroup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/d_ScrollerView/d_ScrollerView.iml" filepath="$PROJECT_DIR$/d_ScrollerView/d_ScrollerView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lrcDemo/lrcDemo.iml" filepath="$PROJECT_DIR$/lrcDemo/lrcDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lrcViewmaster/lrcViewmaster.iml" filepath="$PROJECT_DIR$/lrcViewmaster/lrcViewmaster.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mylistview/mylistview.iml" filepath="$PROJECT_DIR$/mylistview/mylistview.iml" />
+    </modules>
+  </component>
+</project>

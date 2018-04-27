@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vip.connectivitymanagerdemo.MainActivity">
+
+    <TextView
+        android:id="@+id/wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="wifi的状态"
+        android:textSize="25sp"
+        android:textColor="#ff0000"
+        android:layout_centerHorizontal="true"
+       android:layout_marginTop="100sp"/>
+    <TextView
+        android:id="@+id/gprs"
+        android:layout_marginTop="50sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gprs的状态"
+        android:textSize="25sp"
+        android:textColor="#ff0000"
+        android:layout_below="@+id/wifi"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

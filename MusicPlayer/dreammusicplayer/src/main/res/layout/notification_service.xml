@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#fb70638b"
+              android:orientation="horizontal"
+              android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/music"/>
+
+    <TextView
+        android:id="@+id/notification_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/notification_previous"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/previous"/>
+
+    <ImageView
+        android:id="@+id/notification_play"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/playing"/>
+
+    <Button
+        android:id="@+id/notification_next"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/nest"/>
+
+    <Button
+        android:id="@+id/notification_close"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:background="@drawable/close"/>
+
+</LinearLayout>

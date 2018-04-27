@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="datalist">
+        <item>广东</item>
+        <item>北京</item>
+        <item>上海</item>
+        <item>河北</item>
+        <item>西藏</item>
+        <item>新疆</item>
+        <item>河南</item>
+        <item>福建</item>
+        <item>安徽</item>
+    </string-array>
+</resources>

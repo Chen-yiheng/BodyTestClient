@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vip.MainActivity">
+
+    <TextView
+        android:id="@+id/download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="下载地址:"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/downloadAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/download"
+        android:layout_toRightOf="@+id/download"
+        android:hint="请输入下载网址"
+        android:inputType="textWebEditText"
+        android:text="http://sw.bos.baidu.com/sw-search-sp/software/18ba10b217357/sogou_pinyin_8.4.0.1039_6991.exe"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/dest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/download"
+        android:paddingTop="10dp"
+        android:text="目标地址:"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/destAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dest"
+        android:layout_toRightOf="@+id/dest"
+        android:hint="请输入文件名"
+        android:inputType="textWebEditText"
+        android:text="百度.apk"
+        android:textSize="20sp"/>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:indeterminate="false"
+        android:indeterminateOnly="false"
+        android:maxHeight="20dp"
+        android:minHeight="20dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:progressDrawable="@drawable/progressbar_horizontal_1"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/progresstv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progress"
+        android:gravity="center_horizontal"
+        android:text="下载进度%"
+        android:textSize="15sp"
+        android:visibility="gone"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:onClick="onDownload"
+        android:text="下载"
+        android:textSize="25sp"/>
+
+</RelativeLayout>

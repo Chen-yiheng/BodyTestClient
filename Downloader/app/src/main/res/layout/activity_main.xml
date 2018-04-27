@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vip.downloader.MainActivity">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="下载地址:"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/downAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv"
+        android:layout_toRightOf="@+id/tv"
+        android:hint="请输入下载地址"
+        android:inputType="textWebEditText"
+        android:text="http://gdown.baidu.com/data/wisegame/91319a5a1dfae322/baidu_16785426.apk"
+        android:textSize="25sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/downAddress"
+        android:layout_marginTop="10dp"
+        android:indeterminate="false"
+        android:indeterminateOnly="false"
+        android:maxHeight="20dp"
+        android:minHeight="20dp"
+        android:paddingLeft="8dp"
+
+        android:paddingRight="8dp"
+        android:progressDrawable="@drawable/progressbar_horizontal_1"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/downTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:text="下载进度%"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:onClick="onDownload"
+        android:text="下载"
+        android:textSize="25dp" />
+
+</RelativeLayout>

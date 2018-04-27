@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\AndroidStudioProjects\DatabaseTest\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3e5ceba9305fb94bfde4dc25a86767c2a624e299">
+        <dex dex="E:\AndroidStudioProjects\DatabaseTest\app\build\intermediates\pre-dexed\debug\instant-run_93fdfcc23d6ca6c391c0f1b8b9973ca571c285bf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\AndroidStudioProjects\DatabaseTest\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7776dbaa1c5e38b019f5d960c499e3e18743d76c">
+        <dex dex="E:\AndroidStudioProjects\DatabaseTest\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_bc388672875630a45f992ea3c852df9df70171a3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\SDK\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="E:\AndroidStudioProjects\DatabaseTest\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_fb4be0c260c5ccffae22f0cf7f82ef6947998209.jar" />
+    </item>
+
+</items>

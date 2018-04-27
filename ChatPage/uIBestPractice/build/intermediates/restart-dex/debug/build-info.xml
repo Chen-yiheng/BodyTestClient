@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="18"
+    density="xhdpi"
+    format="8"
+    plugin-version="2.2.3"
+    timestamp="264700199630614"
+    token="112890053379954580" >
+
+    <task
+        name="javac"
+        duration="558" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="0" />
+    <task
+        name="verifier"
+        duration="0" />
+
+    <build
+        timestamp="256466702955513"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="E:\AndroidStudioProjects\ChatPage\uIBestPractice\build\outputs\apk\uIBestPractice-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="264700199630614" />
+
+</instant-run>

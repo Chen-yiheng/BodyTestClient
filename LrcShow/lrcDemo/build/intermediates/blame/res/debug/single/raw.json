@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\raw\\hs.lrc",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\raw\\hs.lrc"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\raw\\huasha.mp3",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\raw\\huasha.mp3"
+    }
+]

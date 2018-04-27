@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/XMLParser.iml" filepath="$PROJECT_DIR$/XMLParser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parserwithpull/parserwithpull.iml" filepath="$PROJECT_DIR$/parserwithpull/parserwithpull.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parserwithsax/parserwithsax.iml" filepath="$PROJECT_DIR$/parserwithsax/parserwithsax.iml" />
+    </modules>
+  </component>
+</project>

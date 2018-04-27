@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/customViewGroup/src/main/java/com/qin/customviewgroup/MainActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/customViewGroup/src/main/java/com/qin/customviewgroup/MyView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/customViewGroup/src/main/java/com/qin/customviewgroup/MyViewGroup.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/d_ScrollerView/src/main/java/com/qin/scrollerview/MultiScreenActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/d_ScrollerView/src/main/java/com/qin/scrollerview/MultiViewGroup.java" charset="GBK" />
+  </component>
+</project>

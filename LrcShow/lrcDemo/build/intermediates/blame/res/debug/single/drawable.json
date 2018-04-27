@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_btn_n.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\drawable\\shape_btn_n.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_progress_bar_playing.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\drawable\\selector_progress_bar_playing.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\layer_list_thumb_playing_press.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\drawable\\layer_list_thumb_playing_press.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_btn_u.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\drawable\\shape_btn_u.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\layer_list_progrssbar_play_bottom.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\drawable\\layer_list_progrssbar_play_bottom.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_toast_bg.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\drawable\\shape_toast_bg.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\layer_list_thumb_playing_default.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\drawable\\layer_list_thumb_playing_default.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_btn_p.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\drawable\\shape_btn_p.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_btn.xml",
+        "source": "E:\\AndroidStudioProjects\\LrcShow\\lrcDemo\\src\\main\\res\\drawable\\selector_btn.xml"
+    }
+]

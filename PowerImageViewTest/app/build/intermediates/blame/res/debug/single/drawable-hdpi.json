@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\PowerImageViewTest1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "E:\\AndroidStudioProjects\\PowerImageViewTest1\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\PowerImageViewTest1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\conan.png",
+        "source": "E:\\AndroidStudioProjects\\PowerImageViewTest1\\app\\src\\main\\res\\drawable-hdpi\\conan.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\PowerImageViewTest1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\start_play.png",
+        "source": "E:\\AndroidStudioProjects\\PowerImageViewTest1\\app\\src\\main\\res\\drawable-hdpi\\start_play.png"
+    }
+]

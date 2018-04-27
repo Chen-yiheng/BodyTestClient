@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Fragment.iml" filepath="$PROJECT_DIR$/Fragment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arguments/arguments.iml" filepath="$PROJECT_DIR$/arguments/arguments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backstack/backstack.iml" filepath="$PROJECT_DIR$/backstack/backstack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dynamicfragment/dynamicfragment.iml" filepath="$PROJECT_DIR$/dynamicfragment/dynamicfragment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentaddmenu/fragmentaddmenu.iml" filepath="$PROJECT_DIR$/fragmentaddmenu/fragmentaddmenu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentconnactivity/fragmentconnactivity.iml" filepath="$PROJECT_DIR$/fragmentconnactivity/fragmentconnactivity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resultfragment/resultfragment.iml" filepath="$PROJECT_DIR$/resultfragment/resultfragment.iml" />
+    </modules>
+  </component>
+</project>

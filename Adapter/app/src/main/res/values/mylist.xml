@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources >
+    <string-array name="array">
+        <item>双卡设置</item>
+        <item>通话设置</item>
+        <item>WLAN</item>
+        <item>蓝牙</item>
+        <item>更多</item>
+        <item>情景模式</item>
+        <item>声音</item>
+        <item>显示</item>
+        <item>存储</item>
+    </string-array>
+
+</resources>
