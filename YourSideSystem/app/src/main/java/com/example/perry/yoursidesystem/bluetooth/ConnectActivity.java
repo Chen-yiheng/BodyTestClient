@@ -36,7 +36,7 @@ import com.example.perry.yoursidesystem.test.LogUtil;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+import java.util.UUID; 
 
 /**
  * Created by vip on 2017/3/13.
@@ -183,12 +183,12 @@ public class ConnectActivity extends ListActivity {
         }
 
 //        开启被其它蓝牙设备发现的功能
-        if (bluetoothAdapter.getScanMode() != BluetoothAdapter
-                .SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
-            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-            intent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 100);
-            startActivity(intent);
-        }
+//        if (bluetoothAdapter.getScanMode() != BluetoothAdapter
+//                .SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+//            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+//            intent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 100);
+//            startActivity(intent);
+//        }
 
 
         IntentFilter intentFilter = new IntentFilter();

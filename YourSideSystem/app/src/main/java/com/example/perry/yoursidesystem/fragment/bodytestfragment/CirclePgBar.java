@@ -145,9 +145,15 @@ public class CirclePgBar extends View {
         }
 
         if (mProgress < targetProgress) {
-            mProgress += 1;
+            mProgress ++;
             invalidate();
         }
+        if(mProgress>targetProgress){
+            mProgress--;
+            invalidate();
+        }
+        
+        
 //        Log.w("bar", "draw调用" + (drawCount++));
 
     }

@@ -71,7 +71,7 @@ public class ByhandActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(this,"高压未输入",Toast.LENGTH_SHORT).show();
             return false;
         }
-        if("".equals(temperature)||Float.valueOf(temperature)<36){
+        if("".equals(temperature)||Float.valueOf(temperature)<32){
             Toast.makeText(this,"体温未输入或输入不正常体温",Toast.LENGTH_SHORT).show();
             return false;
         }

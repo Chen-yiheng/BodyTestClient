@@ -151,6 +151,19 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/wifiImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:src="@drawable/wifi2"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
                         android:id="@+id/byhandImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"

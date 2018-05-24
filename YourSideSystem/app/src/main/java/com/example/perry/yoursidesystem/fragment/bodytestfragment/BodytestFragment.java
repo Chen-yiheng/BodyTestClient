@@ -9,6 +9,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -29,6 +32,7 @@ import com.example.perry.yoursidesystem.bluetooth.BluetoothTool;
 import com.example.perry.yoursidesystem.bluetooth.ConnectActivity;
 import com.example.perry.yoursidesystem.database.UserBodyInfo;
 import com.example.perry.yoursidesystem.test.LogUtil;
+import com.example.perry.yoursidesystem.wifi.WifiServise;
 
 import org.litepal.crud.DataSupport;
 
@@ -46,8 +50,9 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
     private CirclePgBar heartRateBar;
     private FloatingActionButton saveButton;
     private TextView suggestView;
-    private ImageView toConnect;
+    private ImageView bluetoothView;
     private ImageView byhandView;
+    private ImageView wifiView;
     private TextView userNameView, userSexView;
     private TextView userWeightView, userHeightView;
     public static final float MAX_TEMPERATURE = 44;
@@ -73,6 +78,8 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
     private int systolicColor;
     private int distolicColor;
     private int heartRateColor;
+    
+    private boolean isWifiConnect=false;
 
     private BluetoothTool bluetoothTool;
 
@@ -96,6 +103,80 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
 //    };
 
 
+//    private BroadcastReceiver wifiStateReceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            String action = intent.getAction();
+//            switch (action) {
+//
+//                case WifiManager.NETWORK_STATE_CHANGED_ACTION:
+//                    NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+//                    if (info.getDetailedState().equals(NetworkInfo.DetailedState.DISCONNECTED)) {
+//                        //wifi已断开  
+//                        //mWifiStateChangeListener.onWifiDisconnect();
+//                    } else if (info.getDetailedState().equals(NetworkInfo.DetailedState
+//                            .CONNECTING)) {
+//                        //正在连接...  
+//                        //mWifiStateChangeListener.onWifiConnecting();
+//                    } else if (info.getDetailedState().equals(NetworkInfo.DetailedState
+//                            .CONNECTED)) {
+//                        //连接到网络  
+//                        // mWifiStateChangeListener.onWifiConnected();
+//                    } else if (info.getDetailedState().equals(NetworkInfo.DetailedState
+//                            .OBTAINING_IPADDR)) {
+//                        //正在获取IP地址  
+//                        // mWifiStateChangeListener.onWifiGettingIP();
+//                    } else if (info.getDetailedState().equals(NetworkInfo.DetailedState.FAILED)) {
+//                        //连接失败  
+//                    }
+//
+//                    break;
+//                case WifiManager.WIFI_STATE_CHANGED_ACTION:
+//                    int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0);
+//                    switch (wifiState) {
+//                        case WifiManager.WIFI_STATE_ENABLING:
+//                            //wifi正在启用  
+//                            //mWifiStateChangeListener.onWifiEnabling();
+//                            break;
+//                        case WifiManager.WIFI_STATE_ENABLED:
+//                            //Wifi已启用  
+//                            //mWifiStateChangeListener.onWifiEnable();
+//                            break;
+//                    }
+//                    break;
+//                case WifiManager.SUPPLICANT_STATE_CHANGED_ACTION:
+//                    int error = intent.getIntExtra(WifiManager.EXTRA_SUPPLICANT_ERROR, -100);
+//                    // LogUtil.log("密码认证错误："+error+"\n");
+//                    if (error == WifiManager.ERROR_AUTHENTICATING) {
+//                        //wifi密码认证错误！  
+////                        mWifiStateChangeListener.onPasswordError();
+//                    }
+//                    break;
+//                case WifiManager.NETWORK_IDS_CHANGED_ACTION:
+//                    //已经配置的网络的ID可能发生变化时  
+////                    mWifiStateChangeListener.onWifiIDChange();
+//                    break;
+//                case ConnectivityManager.CONNECTIVITY_ACTION:
+//                    //连接状态发生变化，暂时没用到  
+//                    int type = intent.getIntExtra(ConnectivityManager.EXTRA_NETWORK_TYPE, 0);
+//                    break;
+//                default:
+//                    break;
+//            }
+//
+//        }
+//    };
+//
+//    private void registeWifiReceiver() {
+//        IntentFilter filter = new IntentFilter();
+//        filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+//        filter.addAction(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION);
+//        filter.addAction(WifiManager.NETWORK_IDS_CHANGED_ACTION);
+//        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+//        getActivity().registerReceiver(wifiStateReceiver, filter);
+//
+//    }
+
     private final BroadcastReceiver bluetoothUpdateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -103,11 +184,11 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
             LogUtil.w("tag", "已经进入接收函数mGattUpdateReceiver");
             if (BluetoothDevice.ACTION_ACL_CONNECTED.equals(action)) {
                 connected = true;
-                Glide.with(getActivity()).load(R.drawable.connected).into(toConnect);
+                Glide.with(getActivity()).load(R.drawable.connected).into(bluetoothView);
                 LogUtil.w("tag", "已经在连接");
             } else if (BluetoothDevice.ACTION_ACL_DISCONNECTED.equals(action)) {
                 connected = false;
-                Glide.with(getActivity()).load(R.drawable.bluetooth).into(toConnect);
+                Glide.with(getActivity()).load(R.drawable.bluetooth).into(bluetoothView);
                 LogUtil.w("tag", "连接不成功");
                 bluetoothTool.disconnect();
             }
@@ -140,7 +221,7 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
                             .LENGTH_SHORT).show();
                     LogUtil.w("tag", "我已经成功连接");
                     Glide.with(BodytestFragment.this.getActivity()).load(R.drawable
-                            .connected).into(toConnect);
+                            .connected).into(bluetoothView);
                     break;
                 case BluetoothTool.READ_FAILED:
                     Toast.makeText(BodytestFragment.this.getActivity(), "读取失败", Toast
@@ -154,7 +235,6 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
                     buffer.append(msg.obj.toString());
                     String str = buffer.toString();
 //                    LogUtil.w("success", "receive data:" + buffer.toString());
-
                     if (buffer.toString().lastIndexOf("a") > 0) {
                         LogUtil.w("success", "我收到血压data:" + str);
                         String[] str1s = str.split(",");
@@ -173,10 +253,8 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
                         isReceTempe = true;
 
                     }
-                    
 
                     if (isReceTempe && isRecePress) {
-                        
                         isRecePress = false;
                         isReceTempe = false;
                         temperature=mtemperature;
@@ -193,6 +271,9 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
             }
         }
     };
+    
+   
+    
 
     @Nullable
     @Override
@@ -203,8 +284,9 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
 //        初始化控件
         saveButton = view.findViewById(R.id.floatButton);
         suggestView = view.findViewById(R.id.suggest);
-        toConnect = view.findViewById(R.id.bluetoothImageView);
+        bluetoothView = view.findViewById(R.id.bluetoothImageView);
         byhandView = view.findViewById(R.id.byhandImageView);
+        wifiView=view.findViewById(R.id.wifiImageView);
         userNameView = view.findViewById(R.id.user_name);
         userSexView = view.findViewById(R.id.user_sex);
         userWeightView = view.findViewById(R.id.user_weight);
@@ -215,7 +297,8 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
         heartRateBar = view.findViewById(R.id.heartRateBar);
 
         byhandView.setOnClickListener(this);
-        toConnect.setOnClickListener(this);
+        bluetoothView.setOnClickListener(this);
+        wifiView.setOnClickListener(this);
         saveButton.setOnClickListener(this);
         setUserCommonInfo();
         loadInfoFromDB();
@@ -266,11 +349,22 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
                     bluetoothTool.disconnect();
                 }
                 break;
+            case R.id.wifiImageView:
+                Intent intent = new Intent(getActivity(), WifiServise.class);
+                if(!isWifiConnect) {
+                    getActivity().startService(intent);
+                    Glide.with(getActivity()).load(R.drawable.wifi3).into(wifiView);
+                    isWifiConnect=true;
+                }else {
+                    getActivity().stopService(intent);
+                    Glide.with(getActivity()).load(R.drawable.wifi2).into(wifiView);
+                    isWifiConnect=false;
+                }
+                break;
             case R.id.floatButton:
                 saveInfo();
                 Toast.makeText(getActivity(), "数据已保存", Toast.LENGTH_SHORT).show();
                 break;
-
         }
     }
 
@@ -337,7 +431,6 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
      * @param temperature 体温
      * @param heartRate   心率
      */
-
     public void handerData( final  float systolic, final  float distolic, final  float temperature,final float 
             heartRate) {
         String suggest = "您现在";
