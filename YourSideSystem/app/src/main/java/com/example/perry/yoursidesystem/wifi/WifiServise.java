@@ -5,7 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
+import android.os.Binder;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
@@ -14,6 +17,7 @@ import com.example.perry.yoursidesystem.test.LogUtil;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.List;
@@ -29,18 +33,37 @@ public class WifiServise extends Service {
     private PrintStream output;
     private BufferedInputStream bufferedInputStream;
     private boolean isRead;
+    private Handler handler;
+
+    public class WifiBinder extends Binder {
+        public void setHandler(Handler handle) {
+            handler = handle;
+        }
+
+
+        public void disconnect() {
+            socket=null;
+            bufferedInputStream=null;
+            isRead = false;
+            LogUtil.w("wifi", "运行disconnect");
+            wifiManager.disableNetwork(networkId);
+
+        }
+
+
+    }
 
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return new WifiBinder();
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        socket=null;
+        socket = null;
         wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         isRead = true;
         LogUtil.w("wifi", "初始化完毕");
@@ -62,13 +85,15 @@ public class WifiServise extends Service {
                 Toast.makeText(this, "连接ATK-ESP8266失败", Toast.LENGTH_LONG).show();
             }
         }
-        new Thread(runnable).start();
-
-        LogUtil.w("wifi", "运行onStartCommand"+isRead);
+        isRead=true;
+        new ReadThread().start();
+        
+//        new Thread(runnable).start();
+        LogUtil.w("wifi", "运行onStartCommand" + isRead);
         return super.onStartCommand(intent, flags, startId);
     }
-   
-    
+
+
     public int configWifi(String ssid) {
         List<WifiConfiguration> wifiConfigurationList = wifiManager.getConfiguredNetworks();
         for (WifiConfiguration c : wifiConfigurationList) {
@@ -89,8 +114,6 @@ public class WifiServise extends Service {
         LogUtil.w("wifi", "运行oonDestroy");
         //closeSocket();
         wifiManager.disableNetwork(networkId);
-
-
     }
 
     private Runnable runnable = new Runnable() {
@@ -99,7 +122,7 @@ public class WifiServise extends Service {
         public void run() {
             if (initClientSocket()) {
                 new ReadThread().start();
-                
+
             } else {
                 Toast.makeText(WifiServise.this, "创建client失败", Toast.LENGTH_LONG).show();
             }
@@ -126,14 +149,14 @@ public class WifiServise extends Service {
 
     public byte[] receiveData() {
         byte[] data = null;
-        if(socket==null) {
+        if (socket == null) {
             try {
                 socket = new Socket("192.168.4.1", 8086);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        
+
         if (socket != null && socket.isConnected()) {
             try {
                 bufferedInputStream = new BufferedInputStream(socket.getInputStream());
@@ -144,8 +167,6 @@ public class WifiServise extends Service {
             } finally {
 
             }
-        } else {
-            data = new byte[1];
         }
         return data;
     }
@@ -155,16 +176,24 @@ public class WifiServise extends Service {
         @Override
         public void run() {
             super.run();
-            while (true) {
+            LogUtil.i("wifi", "开始run");
+            while (isRead) {
                 byte[] data = receiveData();
                 if (data != null && data.length > 1) {
+                    Message message = new Message();
+                    message.what = 1;
+                    message.obj = new String(data);
                     LogUtil.i("wifi", "接收到的数据：" + new String(data));
+                    if (handler != null) {
+                        handler.sendMessage(message);
+                    }else {
+                        LogUtil.i("wifi","handler为null");
+                    }
                 }
             }
         }
 
     }
-
 
 
     private void sendMessage(String str) {

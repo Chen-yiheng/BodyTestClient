@@ -5,15 +5,15 @@ import android.app.Fragment;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -78,10 +78,68 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
     private int systolicColor;
     private int distolicColor;
     private int heartRateColor;
-    
-    private boolean isWifiConnect=false;
+    private WifiServise.WifiBinder wifiBinder;
+
+    private boolean isWifiConnect = false;
 
     private BluetoothTool bluetoothTool;
+
+    private Handler wifiHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            String str = ((String) msg.obj).trim();
+            LogUtil.w("wifi", "receive data:" + buffer.toString());
+            if (str.lastIndexOf("a") > 0) {
+                LogUtil.w("wifi", "我收到血压data:" + str);
+                String[] str1s = str.split(",");
+                mdistolicPre = Float.valueOf(str1s[0].split(":")[1]);
+                msystolicPre = Float.valueOf(str1s[1]);
+                mheartRate = Float.valueOf(str1s[2]);
+                str = "";
+                isRecePress = true;
+
+
+            } else if (str.lastIndexOf("q") > 0) {
+                LogUtil.w("wifi", "我收到体温data:" + str);
+                String[] str1s = str.split(" ");
+                mtemperature = Float.valueOf(str1s[1]);
+                str = "";
+                isReceTempe = true;
+
+            }
+
+            if (isReceTempe && isRecePress) {
+                isRecePress = false;
+                isReceTempe = false;
+                temperature = mtemperature;
+                systolicPre = msystolicPre;
+                distolicPre = mdistolicPre;
+                heartRate = mheartRate;
+                saveInfo();
+                LogUtil.w("wifi", "四个数据：" + mdistolicPre + ";" +
+                        msystolicPre + ";" + mtemperature + ";" + mheartRate);
+                handerData(msystolicPre, mdistolicPre, mtemperature, mheartRate);
+
+            }
+
+        }
+    };
+
+
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            wifiBinder = (WifiServise.WifiBinder) service;
+            wifiBinder.setHandler(wifiHandler);
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
 
 //    private final ServiceConnection serviceConnection = new ServiceConnection() {
 //        @Override
@@ -196,13 +254,12 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
     };
 
     private StringBuffer buffer = new StringBuffer();
-    
+
     boolean isReceTempe = false;
     boolean isRecePress = false;
     float mtemperature = 0, msystolicPre = 0, mdistolicPre = 0, mheartRate = 0;
 
-    private final Handler handler = new Handler() {
-       
+    private final Handler bluetoothHandler = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
@@ -257,23 +314,21 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
                     if (isReceTempe && isRecePress) {
                         isRecePress = false;
                         isReceTempe = false;
-                        temperature=mtemperature;
-                        systolicPre=msystolicPre;
-                        distolicPre=mdistolicPre;
-                        heartRate=mheartRate;
+                        temperature = mtemperature;
+                        systolicPre = msystolicPre;
+                        distolicPre = mdistolicPre;
+                        heartRate = mheartRate;
                         saveInfo();
-                        LogUtil.w("success", "四个数据：" + mdistolicPre + ";" + 
+                        LogUtil.w("success", "四个数据：" + mdistolicPre + ";" +
                                 msystolicPre + ";" + mtemperature + ";" + mheartRate);
                         handerData(msystolicPre, mdistolicPre, mtemperature, mheartRate);
-                        
+
                     }
                     break;
             }
         }
     };
-    
-   
-    
+
 
     @Nullable
     @Override
@@ -286,7 +341,7 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
         suggestView = view.findViewById(R.id.suggest);
         bluetoothView = view.findViewById(R.id.bluetoothImageView);
         byhandView = view.findViewById(R.id.byhandImageView);
-        wifiView=view.findViewById(R.id.wifiImageView);
+        wifiView = view.findViewById(R.id.wifiImageView);
         userNameView = view.findViewById(R.id.user_name);
         userSexView = view.findViewById(R.id.user_sex);
         userWeightView = view.findViewById(R.id.user_weight);
@@ -302,6 +357,9 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
         saveButton.setOnClickListener(this);
         setUserCommonInfo();
         loadInfoFromDB();
+        getActivity().bindService(new Intent(getActivity(), WifiServise.class), connection,
+                Context.BIND_AUTO_CREATE);
+
         LogUtil.w("tag5", "调用的onCreatedView方法");
 
         return view;
@@ -342,8 +400,12 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.bluetoothImageView:
                 if (!connected) {
-                    Intent intent = new Intent(getActivity(), ConnectActivity.class);
-                    startActivityForResult(intent, REQUEST_CONNECT_DEVICE);
+//                    Intent intent = new Intent(getActivity(), ConnectActivity.class);
+//                    startActivityForResult(intent, REQUEST_CONNECT_DEVICE);
+                    BluetoothDevice device = BluetoothAdapter.getDefaultAdapter()
+                            .getRemoteDevice("20:16:11:21:11:22");
+                    bluetoothTool = new BluetoothTool(device, bluetoothHandler);
+                    bluetoothTool.connect();
                     connected = true;
                 } else {
                     bluetoothTool.disconnect();
@@ -351,14 +413,14 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.wifiImageView:
                 Intent intent = new Intent(getActivity(), WifiServise.class);
-                if(!isWifiConnect) {
+                if (!isWifiConnect) {
                     getActivity().startService(intent);
                     Glide.with(getActivity()).load(R.drawable.wifi3).into(wifiView);
-                    isWifiConnect=true;
-                }else {
-                    getActivity().stopService(intent);
+                    isWifiConnect = true;
+                } else {
+                    wifiBinder.disconnect();
                     Glide.with(getActivity()).load(R.drawable.wifi2).into(wifiView);
-                    isWifiConnect=false;
+                    isWifiConnect = false;
                 }
                 break;
             case R.id.floatButton:
@@ -406,8 +468,8 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
 //                log.w("tag", "connect request result=" + result);
 //            }
             BluetoothDevice device = BluetoothAdapter.getDefaultAdapter()
-                    .getRemoteDevice(deviceAddress);
-            bluetoothTool = new BluetoothTool(device, handler);
+                    .getRemoteDevice("20:16:11:21:11:22");
+            bluetoothTool = new BluetoothTool(device, bluetoothHandler);
             bluetoothTool.connect();
 
 
@@ -431,8 +493,8 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
      * @param temperature 体温
      * @param heartRate   心率
      */
-    public void handerData( final  float systolic, final  float distolic, final  float temperature,final float 
-            heartRate) {
+    public void handerData(final float systolic, final float distolic, final float temperature,
+                           final float heartRate) {
         String suggest = "您现在";
         if (systolic >= 90 || systolic <= 60) {
             systolicColor = Color.RED;
@@ -454,10 +516,10 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
         if (temperature > 37.5) {
             teperratureColor = Color.RED;
             suggest += "已发烧,";
-        } else if(temperature<34.0)  {
+        } else if (temperature < 34.0) {
             teperratureColor = Color.RED;
-            suggest+="体温过低，";
-        }else{
+            suggest += "体温过低，";
+        } else {
             teperratureColor = Color.GREEN;
         }
 
@@ -486,7 +548,7 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-               
+
                 //        进行各种操作
 
                 temperatureBar.setParameter(MAX_TEMPERATURE, temperature, teperratureColor,
@@ -499,7 +561,7 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
                         HEART_RATE_UNIT);
             }
         });
-       
+
     }
 
 
@@ -524,6 +586,8 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        getActivity().unbindService(connection);
+        getActivity().stopService(new Intent(getActivity(), WifiServise.class));
         LogUtil.w("tag5", "调用的onDestroy方法");
     }
 

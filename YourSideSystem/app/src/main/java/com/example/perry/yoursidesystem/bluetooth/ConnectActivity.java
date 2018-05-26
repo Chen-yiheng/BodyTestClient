@@ -280,6 +280,8 @@ public class ConnectActivity extends ListActivity {
         final Intent intent = new Intent();
         intent.putExtra(BodytestFragment.EXTRAS_DEVICE_NAME, device.getName());
         intent.putExtra(BodytestFragment.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+        LogUtil.i("blue",device.getAddress());
+        LogUtil.i("blue",device.getName());
         setResult(Activity.RESULT_OK, intent);
         finish();
     }
