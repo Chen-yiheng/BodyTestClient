@@ -72,6 +72,10 @@ public class BluetoothTool {
         });
         thread.start();
     }
+    
+    public void startWrite(String str){
+        new WriteTask(str).run();
+    }
 
     public void disconnect() {
         try {
@@ -173,14 +177,13 @@ public class BluetoothTool {
                 outputStream = socket.getOutputStream();
                 outputStream.write(st);
             } catch (Exception e) {
-                setState(WRITE_FAILED);
                 e.printStackTrace();
             }
         }
 
     }
 
-
+ 
     private void setState(int mes) {
         Message message = new Message();
         message.what = mes;

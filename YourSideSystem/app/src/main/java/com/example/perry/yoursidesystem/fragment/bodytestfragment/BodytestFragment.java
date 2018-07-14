@@ -65,7 +65,7 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
 
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
-    private boolean connected;
+    public static boolean connected;
     private String deviceAddress;
     private final static int REQUEST_CONNECT_DEVICE = 1;
 
@@ -82,7 +82,7 @@ public class BodytestFragment extends Fragment implements View.OnClickListener {
 
     private boolean isWifiConnect = false;
 
-    private BluetoothTool bluetoothTool;
+    public static BluetoothTool bluetoothTool;
 
     private Handler wifiHandler = new Handler() {
         @Override

@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static String userWeight;
     public static String userHeight;
     public static final String USER_NAME_TAG = "username";
-   
 
 
     @Override
@@ -118,6 +117,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.nav_exit:
                         finishAll();
                         break;
+                    case R.id.nav_up:
+                        if (BodytestFragment.connected) {
+                            BodytestFragment.bluetoothTool.startWrite("COMMAND");
+                        }
+                        break;
+
+
                 }
                 return true;
             }
@@ -137,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         circleImageView.setOnClickListener(this);
 
     }
+
 
     private void getUserCommonInfo() {
         List<UserCommonInfo> infoList = DataSupport.select("userName", "sex", "weight",
@@ -204,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode,resultCode,data);
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 888 && resultCode == 999) {
             userSex = data.getStringExtra(InputActivity.SEX_TAG);
             userWeight = data.getStringExtra(InputActivity.WEIGHT_TAG);
