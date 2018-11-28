@@ -22,6 +22,10 @@
         android:text="黄益凛"
         android:textColor="#fff"
         android:textSize="20dp"/>
+    
+    
+    
+    
 
     <!--<TextView-->
     <!--android:id="@+id/mail"-->
